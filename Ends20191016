@@ -33,3 +33,51 @@ public class Test {
             //只能用于数组求和
             sum = sum + y;
         System.out.println(sum);
+
+
+
+package test;
+
+import static java.lang.Math.PI;
+import java.util.Scanner;
+
+
+public class Test {
+    Test(){
+        double area = getArea(3.5f);
+        System.out.println(area);
+        A();
+    }
+    double getArea(float radius){
+        return radius*radius*PI;
+    }
+    int xx[] = new int[3];
+    int m = 0;
+    int [] prefectNumber(){
+        int j;
+        for(int i = 1;i <= 1000;i++){
+            int sum = 0;//注意初始sum为零
+            for(j = 1;j <= i/2;j++){
+                if(i % j == 0)
+                    sum = sum + j;
+            }
+            if(i == sum){
+                xx[m] = i;
+                m++;
+            }
+        }
+        return xx;
+    }
+    String name;
+    int x = 100;//成员变量，有默认值0,对成员变量的赋值只能放在方法中
+    void A(){
+        int x = this.x;//第一个x为局部变量，无默认值
+        System.out.println(x);
+    }
+    public static void main(String[] args) {
+        Test tt = new Test();
+        tt.name = "aaa";
+        tt.getArea(5.1f);
+    }
+    
+}
