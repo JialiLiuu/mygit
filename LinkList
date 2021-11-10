@@ -1,3 +1,4 @@
+struct LinkList* L与struct LinkList* *L的区别
 对于LinkList L: L是指向定义的node结构体的指针,可以用->运算符来访问结构体成员,即L->elem,而(*L)就是个Node型的结构体了,可以用点运算符访问该结构体成员,即(*L).elem;
 
 对于LinkList *L:L是指向定义的Node结构体指针的指针,所以(*L)是指向Node结构体的指针,可以用->运算符来访问结构体成员,即(*L)->elem,当然,(**L)就是Node型结构体了,所以可以用点运算符来访问结构体成员,即(**L).elem;
