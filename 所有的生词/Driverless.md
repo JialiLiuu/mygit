@@ -16,4 +16,4 @@ tipping point 临界点
 tremendously 极大地  
 But that’s a ways away 但这还有很长的路要走  
 accident-free 无事故  
-[没读完](https://knowledge.wharton.upenn.edu/article/driverless-deliveries-how-close-are-we/)
+[来源](https://knowledge.wharton.upenn.edu/article/driverless-deliveries-how-close-are-we/)
