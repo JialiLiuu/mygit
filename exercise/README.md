@@ -2,6 +2,9 @@
 * Leetcode
 * 牛客网
 
+# 注意事项
+* cpp文件名称不能含中文！！！
+
 ## vscode配置C++环境
 * 见.vscode文件配置
 
@@ -22,3 +25,14 @@
 ```
 [参考1](https://www.cnblogs.com/bananan/p/15039582.html)  
 [参考2](https://blog.csdn.net/GU_bigbull/article/details/107265699)
+
+## vscode解决编译.cpp文件出现中文乱码问题
+#### 出现在点击Code Runner编译的情况中
+* 修改settings.json中
+![图片找不到了](https://raw.githubusercontent.com/JialiLiuu/mygit/algorithm-question/picture/gbk_1.png)
+```
+"code-runner.executorMap": {
+        "cpp": " cd $dir && C:\\mingw\\mingw64\\bin\\g++ -fexec-charset=GBK $fileName -D LOCAL -o    ..\\exe\\$fileNameWithoutExt.exe && ..\\exe\\$fileNameWithoutExt.exe",
+    },
+```
+![图片找不到了](https://raw.githubusercontent.com/JialiLiuu/mygit/algorithm-question/picture/gbk_2.png)
