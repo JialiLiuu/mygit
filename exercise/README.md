@@ -36,3 +36,12 @@
     },
 ```
 ![图片找不到了](https://raw.githubusercontent.com/JialiLiuu/mygit/algorithm-question/picture/gbk_2.png)
+
+## vscode配置自动保存
+文件-首选项-设置-搜索auto save-选择afterDelay
+
+- off: 关闭自动保存
+- afterDelay: XX毫秒后自动保存，这个就是我所讲的解决方法，下面会详细介绍
+- onFocusChange: 当焦点移出编辑框
+- onWindowChange: 当焦点移出VSCode窗口
+![图片找不到了](https://raw.githubusercontent.com/JialiLiuu/mygit/algorithm-question/picture/autosave.png)
