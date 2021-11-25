@@ -28,23 +28,23 @@ class Solution
 public:
     int findInMountainArray(int target, MountainArray &mountainArr)
     {
-        // int left = 0, right = mountainArr.length() - 1;
-        // int peak;
-        // while (1)
-        // {
-        //     peak = mountainArr.get(int((left + right) / 2));
-        //     int right_peak = mountainArr.get(int((left + right) / 2) + 1);
-        //     if (peak > left_peak && peak > right_peak)
-        //         break;
-        //     else if ()
-        // }
+        int left = 0, right = mountainArr.length() - 1;
+        int peak;
+        while (1)
+        {
+            peak = mountainArr.get(int((left + right) / 2));
+            int right_peak = mountainArr.get(int((left + right) / 2) + 1);
+            if (peak > left_peak && peak > right_peak)
+                break;
+            else if ()
+        }
 
-        // for (int i = 0; i < mountainArr.length(); i++)
-        // {
-        //     if (mountainArr.get(i) == target)
-        //         return i;
-        // }
-        // return -1;
+        for (int i = 0; i < mountainArr.length(); i++)
+        {
+            if (mountainArr.get(i) == target)
+                return i;
+        }
+        return -1;
     }
 };
 

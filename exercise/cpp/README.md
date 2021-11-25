@@ -1,3 +1,7 @@
+# plan
+* 150
+
+
 ### 初始化vector且值全为a(常数)
 一维：
 ```
@@ -67,8 +71,25 @@ else
 _map.size()
 ```
 
-### map最大值最小值
+### map排序(由大到小)
+自定义的比较函数是静态的！！  
+将map转化成vector<pair<xxx,xxx> >
+```
+class Solution
+{
+    static bool cmp(const pair<int, int> &p1, const pair<int, int> &p2) //要用常数，不然编译错误 加static！！！
+    {
+        return p1.second > p2.second;
+    }
 
+public:
+    int AA(vector<vector<int>> &times, int n, int k)
+    {
+        vector<pair<int, int>> _map;
+        sort(_map.begin(), _map.end(), cmp);
+    }
+```
+[参考](https://blog.csdn.net/qq_31217423/article/details/76375336)
 
 ### vector二维求一维长度，二维长度
 ```
