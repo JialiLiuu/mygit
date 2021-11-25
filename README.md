@@ -20,10 +20,10 @@
 
 ### Chrome实现快捷键翻译网页选中单词
 * 下载【Google 翻译】插件
-![图片丢失]()
+![图片丢失](https://raw.githubusercontent.com/JialiLiuu/mygit/english-reading/pictures/translate_1.png)
 * 设置快捷键
-![图片丢失]()
-![图片丢失]()
-![图片丢失]()
-![图片丢失]()
-![图片丢失]()
+![图片丢失](https://raw.githubusercontent.com/JialiLiuu/mygit/english-reading/pictures/translate_2.png)
+![图片丢失](https://raw.githubusercontent.com/JialiLiuu/mygit/english-reading/pictures/translate_3.png)
+![图片丢失](https://raw.githubusercontent.com/JialiLiuu/mygit/english-reading/pictures/translate_4.png)
+![图片丢失](https://raw.githubusercontent.com/JialiLiuu/mygit/english-reading/pictures/translate_5.png)
+![图片丢失](https://raw.githubusercontent.com/JialiLiuu/mygit/english-reading/pictures/translate_6.png)
