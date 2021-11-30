@@ -1,5 +1,5 @@
 #include "../include/common.h"
-//超时
+//超时,参考https://leetcode-cn.com/problems/snapshot-array/solution/java-shi-yong-treemapzhi-xu-ji-xing-dai-ma-by-forz/ 改思路
 class SnapshotArray
 {
 public:
