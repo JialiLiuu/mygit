@@ -42,6 +42,25 @@ sort(matchsticks.begin(), matchsticks.end(), less<int>());
     m2.insert(pair<string, int>(string("ghi"), 3));     //----3
 ```
 
+### map取最后一个元素
+map的自动排序的特性！默认的是从小到大递增排序！！！
+[参考](https://blog.csdn.net/Fly_as_tadpole/article/details/82748798)
+```
+map<int,int>res;
+auto map_at = res.end(); 
+map_at--;    //指向最后一个元素！
+auto map_at = res.begin();   //指向第一个元素！
+```
+
+### map lower_bound和upper_bound
+map::lower_bound(key):返回map中第一个大于或等于key的迭代器指针
+map::upper_bound(key):返回map中第一个大于key的迭代器指针
+```
+map <int, int> :: const_iterator it = _map.upper_bound(2);
+it -> second;
+```
+[来源](https://www.cnblogs.com/billin/archive/2011/09/01/2162102.html)
+
 ### map delete
 ```
 //删除键为k1指向的元素
@@ -99,6 +118,14 @@ vec[0].size()
 vec.size()
 ```
 
+### vector求和
+```
+    vector<int> v = { 1, 2, 3, 4, 5 };
+    cout << "sum2: " << accumulate(v.begin(), v.end(), 0) << endl; //15
+    cout << "sum3: " << accumulate(v.begin(), v.end(), 5) << endl;  //20
+```
+[参考](https://blog.csdn.net/qq_22186119/article/details/104995831)
+
 ### int转string
 [参考](https://blog.csdn.net/chavo0/article/details/51038397)
 ```
@@ -121,3 +148,13 @@ to_string()
 最大值下标：int maxPosition = max_element(a,a+6) - a; 
 最小值下标：int minPosition = min_element(a,a+6) - a;
 [参考](https://www.cnblogs.com/Tang-tangt/p/9352093.html)
+
+
+### string 初始化全为a的字符串
+string(size_type n,char c) ：创建一个包含 n 个元素的 string 对象，其中每个元素都被初始化为字符 c
+```
+string str(10,'a');
+string.find_first_of();
+string.find_last_of();
+```
+[来源](https://www.cnblogs.com/tongye/p/10760154.html)

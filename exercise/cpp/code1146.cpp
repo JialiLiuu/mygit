@@ -3,30 +3,35 @@
 class SnapshotArray
 {
 public:
-    vector<int> item;
-    map<int, vector<int>> _map;
+    vector<map<int, int>> item;
     int count = 0;
     SnapshotArray(int length)
     {
-        vector<int> temp(length, 0);
-        item = temp;
+        map<int, int> _map;
+        _map[0]=0;
+        for (int i = 0; i < length; i++)
+            item.push_back(_map);
     }
 
     void set(int index, int val)
     {
-        item[index] = val;
+        item[index][count]=val;
+        // item[index].insert({count, val});
     }
 
     int snap()
     {
-        _map.insert({count, item});
         return count++;
     }
 
     int get(int index, int snap_id)
     {
-        vector<int> temp = _map[snap_id];
-        return temp[index];
+        auto it=item[index].upper_bound(snap_id);
+        if(it==item[index].begin())
+            return 0;
+        else
+            it--;
+        return it->second;
     }
 };
 

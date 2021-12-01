@@ -4,4 +4,5 @@
 #include <algorithm>
 #include <math.h>
 #include <map>
+#include <numeric>
 using namespace std;
