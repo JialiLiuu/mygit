@@ -126,6 +126,17 @@ vec.size()
 ```
 [参考](https://blog.csdn.net/qq_22186119/article/details/104995831)
 
+### vector find
+```
+vector<int>::iterator it = find(vec.begin(), vec.end(), 6);
+if (it != vec.end())
+    cout<<*it<<endl;
+else
+    cout<<"can not find"<<endl;
+```
+[参考](https://blog.csdn.net/qq_22186119/article/details/104995831)
+[](https://blog.csdn.net/test1280/article/details/65937779)
+
 ### int转string
 [参考](https://blog.csdn.net/chavo0/article/details/51038397)
 ```
@@ -149,6 +160,14 @@ to_string()
 最小值下标：int minPosition = min_element(a,a+6) - a;
 [参考](https://www.cnblogs.com/Tang-tangt/p/9352093.html)
 
+### vector 差分
+```
+std::vector<int> v{2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
+std::adjacent_difference(v.begin(), v.end(), v.begin());
+for (auto n : v)
+    std::cout << n << ' ';  //2  2  2  2  ....
+```
+[参考](https://blog.csdn.net/zhangxiao93/article/details/75822424)
 
 ### string 初始化全为a的字符串
 string(size_type n,char c) ：创建一个包含 n 个元素的 string 对象，其中每个元素都被初始化为字符 c
