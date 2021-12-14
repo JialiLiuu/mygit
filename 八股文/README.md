@@ -3,7 +3,7 @@
 * 牛客网
 * CSDN
 
-### 项目计划
+### 实践(项目&大数据开发)
 * 单点登录
 [理解](https://www.cnblogs.com/ywlaker/p/6113927.html)
 * 数据库读写分离
@@ -30,3 +30,12 @@
 * mybatis
 [foreach](https://www.cnblogs.com/fnlingnzb-learner/p/10566452.html)
 [动态sql](https://mybatis.org/mybatis-3/zh/dynamic-sql.html)
+* redis
+* Cache<K, V>
+* @Scheduled(cron = "${attr.realtime.update.worker.cron:39 15 7 * * ?}")
+[解释](https://www.jianshu.com/p/1defb0f22ed1)
+* @Value
+[解释](https://blog.csdn.net/woheniccc/article/details/79804600)
+* 缓存操作类
+[实现](https://cloud.tencent.com/developer/article/1465411)
+* 消息队列
