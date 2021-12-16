@@ -44,6 +44,10 @@
 * [docker](https://blog.51cto.com/lwc0329/3010862)
 [安装1](https://blog.51cto.com/lwc0329/3010862)
 [安装2](https://www.jianshu.com/p/028b40ca4f2a)
+* 关闭服务
+[理论](https://segmentfault.com/a/1190000039405032)
+* 微服务架构
+[理论](https://www.cnblogs.com/Leo_wl/p/11736579.html)
 
 ### 大数据通用处理平台
 1. ~~Spark~~
