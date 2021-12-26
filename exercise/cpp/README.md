@@ -1,6 +1,11 @@
 # plan
 * 150
 
+### Lambda的语法
+```
+auto it=find_if(rooms.begin(), rooms.end(), [&](const vector<int> &a) {return a[1] >= queries[i][1]; });
+```
+[参考](https://blog.csdn.net/huangshanchun/article/details/47155859)
 
 ### 初始化vector且值全为a(常数)
 一维：
@@ -32,6 +37,7 @@ sort(matchsticks.begin(), matchsticks.end(), greater<int>());
 //从小到大
 sort(matchsticks.begin(), matchsticks.end(), less<int>());
 ```
+[参考](https://blog.csdn.net/wlzx1993/article/details/82425813)
 
 ### map插入数据
 [参考](https://blog.csdn.net/Leo_csdn_/article/details/86589904)
@@ -127,6 +133,7 @@ vec.size()
 [参考](https://blog.csdn.net/qq_22186119/article/details/104995831)
 
 ### vector find
+* 一维数组寻找
 ```
 vector<int>::iterator it = find(vec.begin(), vec.end(), 6);
 if (it != vec.end())
@@ -134,8 +141,11 @@ if (it != vec.end())
 else
     cout<<"can not find"<<endl;
 ```
-[参考](https://blog.csdn.net/qq_22186119/article/details/104995831)
-[](https://blog.csdn.net/test1280/article/details/65937779)
+* 二维数组寻找
+```
+auto it=find_if(rooms.begin(), rooms.end(), [](const vector<int> &a) {return a[1] >= 4; });
+```
+[参考](https://www.cnblogs.com/heyonggang/p/3241789.html)
 
 ### int转string
 [参考](https://blog.csdn.net/chavo0/article/details/51038397)
