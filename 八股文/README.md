@@ -49,6 +49,9 @@
 * 微服务架构
 [理论](https://www.cnblogs.com/Leo_wl/p/11736579.html)
 * ## 拦截器和过滤器
+* ES的索引模板
+* ClickHouse
+* 红黑树
 
 ### 大数据通用处理平台
 1. ~~Spark~~
