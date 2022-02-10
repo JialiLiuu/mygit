@@ -2,8 +2,10 @@
 * 书籍
 * 牛客网
 * CSDN
+# 架构设计
+[了解](https://segmentfault.com/a/1190000023122582)
 
-### 实践(项目&大数据开发)
+# 实践(项目&大数据开发)
 * 单点登录
 [理解](https://www.cnblogs.com/ywlaker/p/6113927.html)
 * 数据库读写分离
