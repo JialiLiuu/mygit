@@ -1,12 +1,24 @@
 # plan
 
+### do
+
 * ~~150~~
-* 1996
-* 1827
-* M_17_18
+* ~~1996~~
+* ~~1827~~
+* M_17_18：超时
 * JZ_60
 * 775
 * JZ_87
+
+### try
+
+* 421
+* 1685：超时
+* ~~M_17_17~~
+* 1239
+* 1674
+
+# 知识点
 
 ### Lambda的语法
 
@@ -44,8 +56,8 @@ vec.erase( vec.begin(), vec.begin() + 3 );   //删除第1个元素，到第4个�
 
 ### vector元素排序
 
-升序：sort(begin,end,less`<data-type>`());
-降序：sort(begin,end,greater`<data-type>`());
+升序：sort(begin,end,less `<data-type>`());
+降序：sort(begin,end,greater `<data-type>`());
 
 ```
 //从大到小
@@ -55,6 +67,14 @@ sort(matchsticks.begin(), matchsticks.end(), less<int>());
 ```
 
 [参考](https://blog.csdn.net/wlzx1993/article/details/82425813)
+
+### 二维vector元素排序
+
+```
+//房间由大到小排序
+        sort(rooms.begin(), rooms.end(), [](const vector<int> &a, const vector<int> &b)
+             { return a[1] > b[1]; });
+```
 
 ### map插入数据
 
@@ -226,7 +246,7 @@ for (auto n : v)
 
 [参考](https://blog.csdn.net/zhangxiao93/article/details/75822424)
 
-### string 初始化全为a的字符串
+### string 初始化全为a的字符串，含find
 
 string(size_type n,char c) ：创建一个包含 n 个元素的 string 对象，其中每个元素都被初始化为字符 c
 
