@@ -1,60 +1,66 @@
-# 八股文
-* 书籍
-* 牛客网
-* CSDN
-# 架构设计
-[了解](https://segmentfault.com/a/1190000023122582)
+# Day by day
+#### 0210
+* 架构设计/OOD
+[link](https://segmentfault.com/a/1190000023122582)
+#### 0216
+* 幂等服务
+以SQL为例，有下面三种场景，只有第三种场景需要开发人员使用其他策略保证幂等性：
+1、 SELECT col1 FROM tab1 WHER col2=2，无论执行多少次都不会改变状态，是天然的幂等。
+2、 UPDATE tab1 SET col1=1WHERE col2=2，无论执行成功多少次状态都是一致的，因此也是幂等操作。
+3、 UPDATE tab1 SET col1=col1+1WHERE col2=2，每次执行的结果都会发生变化，这种不是幂等的。
+[link](https://cloud.tencent.com/developer/article/1522973)
 
-# 实践(项目&大数据开发)
-* 单点登录
+# Project highlights
+#### 单点登录
 [理解](https://www.cnblogs.com/ywlaker/p/6113927.html)
-* 数据库读写分离
+#### 数据库读写分离
 [实践](https://segmentfault.com/a/1190000023775512)
-* 自定义分库分表
+#### 自定义分库分表
 [实践](https://blog.csdn.net/weixin_42437633/article/details/89765740)
-* mysql分页查询
+#### mysql分页查询
 [<![CDATA[LIMIT #{startIndex},#{pageSize}]]>](https://www.shangmayuan.com/a/75ecb6de1a594d32af3e572e.html)
-* UMP监控
-* 动态配置
-* 动态调度
-* ES业务日志
+#### UMP监控
+#### 动态配置
+#### 动态调度
+#### ES业务日志
 [入门教程1](https://www.ruanyifeng.com/blog/2017/08/elasticsearch.html)
 [入门教程2](https://www.cainiaojc.com/elasticsearch/)
 [java api](https://www.elastic.co/guide/en/elasticsearch/client/java-rest/7.15/index.html)
-* 限流、熔断、降级
+#### 限流、熔断、降级
 [实现](https://www.jianshu.com/p/2ecc233712ce)
-* jemeter压测
+#### jemeter压测
 [教程](https://www.cnblogs.com/stulzq/p/8971531.html)
-* LDAP
-* 多线程编程技术
+#### LDAP
+#### 多线程编程技术
 [创建线程](https://www.cnblogs.com/pcheng/p/6905340.html)
 [线程池](https://www.cnblogs.com/pcheng/p/13540619.html)
-* mybatis
+#### mybatis
 [foreach](https://www.cnblogs.com/fnlingnzb-learner/p/10566452.html)
 [动态sql](https://mybatis.org/mybatis-3/zh/dynamic-sql.html)
-* [redis](https://www.runoob.com/redis/redis-tutorial.html)
-* Cache<K, V>
-* @Scheduled(cron = "${attr.realtime.update.worker.cron:39 15 7 * * ?}")
+#### [redis](https://www.runoob.com/redis/redis-tutorial.html)
+#### Cache<K, V>
+#### @Scheduled(cron = "${attr.realtime.update.worker.cron:39 15 7 * * ?}")
 [解释](https://www.jianshu.com/p/1defb0f22ed1)
-* @Value
+#### @Value
 [解释](https://blog.csdn.net/woheniccc/article/details/79804600)
-* 缓存操作类
+#### 缓存操作类
 [实现](https://cloud.tencent.com/developer/article/1465411)
-* 消息队列
-* 一致性保证/容灾
+#### 消息队列
+#### 一致性保证/容灾
 [理解](https://www.cnblogs.com/dh-dh/p/12851655.html)
-* [docker](https://blog.51cto.com/lwc0329/3010862)
+#### [docker](https://blog.51cto.com/lwc0329/3010862)
 [安装1](https://blog.51cto.com/lwc0329/3010862)
 [安装2](https://www.jianshu.com/p/028b40ca4f2a)
-* 关闭服务
+#### 关闭服务
 [理论](https://segmentfault.com/a/1190000039405032)
-* 微服务架构
+#### 微服务架构
 [理论](https://www.cnblogs.com/Leo_wl/p/11736579.html)
-* ## 拦截器和过滤器
-* ES的索引模板
-* ClickHouse
-* 红黑树
+#### 拦截器和过滤器
+#### ES的索引模板
+#### ClickHouse
+#### 红黑树
 
+# Big data
 ### 大数据通用处理平台
 1. ~~Spark~~
 [安装](https://www.cnblogs.com/zhangyongli2011/p/10572152.html)
@@ -153,5 +159,6 @@
 4. Openstack   
 5. Docker
 
-# 阅读
-- 2.8 Java核心90页
+# Read books
+#### 2.8 
+Java核心90页
