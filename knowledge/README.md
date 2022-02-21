@@ -32,6 +32,14 @@
 |[Base64](https://www.runoob.com/java/java8-base64.html)||
 * spring bean加载顺序
 
+#### 0221
+
+* InheritableThreadLocal
+InheritableThreadLocal主要用于子线程创建时，需要自动继承父线程的ThreadLocal变量，方便必要信息的进一步传递。
+[link](https://www.jianshu.com/p/94ba4a918ff5)
+* ThreadLocal
+[link](http://www.jasongj.com/java/threadlocal/)
+
 # Project highlights
 
 #### 单点登录
