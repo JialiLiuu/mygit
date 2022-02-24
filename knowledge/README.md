@@ -73,6 +73,14 @@ java内存分析工具 jmap，jhat及dump分析
 那在finally写个return是什么结果哪？写了会不能离开finally子句主体；
 [link](https://www.cnblogs.com/yanbigfeg/p/9295541.html)
 
+#### 0224
+* BigDecimal
+* Redis中String类型的Value最大可以容纳数据长度
+项目中使用redis存储，key-value方式，在Redis中字符串类型的Value最多可以容纳的数据长度是512M
+官方信息:
+A String value can be at max 512 Megabytes in length.
+[link](https://blog.csdn.net/lu_wei_wei/article/details/50906101)
+
 # Project highlights
 
 #### 单点登录
