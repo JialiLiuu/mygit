@@ -81,6 +81,16 @@ java内存分析工具 jmap，jhat及dump分析
 A String value can be at max 512 Megabytes in length.
 [link](https://blog.csdn.net/lu_wei_wei/article/details/50906101)
 
+#### 0225
+* Mockito 框架
+* implements Serializable
+一个对象序列化的接口，一个类只有实现了Serializable接口，它的对象才是可序列化的。因此如果要序列化某些类的对象，这些类就必须实现Serializable接口。而实际上，Serializable是一个空接口，没有什么具体内容，它的目的只是简单的标识一个类的对象可以被序列化.
+在进行Java的Socket编程的时候，你有时候可能要传输某一类的对象，那么也就要实现Serializable接口。最常见的你传输一个字符串，它是JDK里面的类，也实现了Serializable接口，这样做为的是将数据变为二进制来传输，所以可以在网络上传输。
+[link](https://blog.csdn.net/am540/article/details/82498298)
+* redis过期键的删除策略
+redis使用的过期键值删除策略是：惰性删除加上定期删除，两者配合使用
+[link](https://www.jianshu.com/p/9352d20fb2e0)
+
 # Project highlights
 
 #### 单点登录
