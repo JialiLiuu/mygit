@@ -50,6 +50,9 @@ str=String.format("Hi,%s:%s.%s", "王南","王力","王张");
 ```
 [link](https://blog.csdn.net/lonely_fireworks/article/details/7962171)
 
+#### 0228
+* 序列化 反序列化
+
 * @Resource
 @Resource用法与@Autowired 用法 用法相似，也是做依赖注入的，从容器中自动获取bean。
 在启动spring的时候，首先要启动容器；
