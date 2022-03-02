@@ -50,9 +50,26 @@ str=String.format("Hi,%s:%s.%s", "王南","王力","王张");
 ```
 [link](https://blog.csdn.net/lonely_fireworks/article/details/7962171)
 
+#### 0224
+* BigDecimal
+* Redis中String类型的Value最大可以容纳数据长度
+项目中使用redis存储，key-value方式，在Redis中字符串类型的Value最多可以容纳的数据长度是512M
+官方信息:
+A String value can be at max 512 Megabytes in length.
+[link](https://blog.csdn.net/lu_wei_wei/article/details/50906101)
+
+#### 0225
+* Mockito 框架
+* implements Serializable
+一个对象序列化的接口，一个类只有实现了Serializable接口，它的对象才是可序列化的。因此如果要序列化某些类的对象，这些类就必须实现Serializable接口。而实际上，Serializable是一个空接口，没有什么具体内容，它的目的只是简单的标识一个类的对象可以被序列化.
+在进行Java的Socket编程的时候，你有时候可能要传输某一类的对象，那么也就要实现Serializable接口。最常见的你传输一个字符串，它是JDK里面的类，也实现了Serializable接口，这样做为的是将数据变为二进制来传输，所以可以在网络上传输。
+[link](https://blog.csdn.net/am540/article/details/82498298)
+* redis过期键的删除策略
+redis使用的过期键值删除策略是：惰性删除加上定期删除，两者配合使用
+[link](https://www.jianshu.com/p/9352d20fb2e0)
+
 #### 0228
 * 序列化 反序列化
-
 * @Resource
 @Resource用法与@Autowired 用法 用法相似，也是做依赖注入的，从容器中自动获取bean。
 在启动spring的时候，首先要启动容器；
@@ -76,23 +93,57 @@ java内存分析工具 jmap，jhat及dump分析
 那在finally写个return是什么结果哪？写了会不能离开finally子句主体；
 [link](https://www.cnblogs.com/yanbigfeg/p/9295541.html)
 
-#### 0224
-* BigDecimal
-* Redis中String类型的Value最大可以容纳数据长度
-项目中使用redis存储，key-value方式，在Redis中字符串类型的Value最多可以容纳的数据长度是512M
-官方信息:
-A String value can be at max 512 Megabytes in length.
-[link](https://blog.csdn.net/lu_wei_wei/article/details/50906101)
+#### 0301
+* instanceof
+[link](https://www.jianshu.com/p/5fc7d8cc0cf0)
+* HTTP请求状态码
+|HTTP 返回码（Status Code）|说明（Description）|
+|:-|:-|
+|400|错误请求）服务器不理解请求的语法。|
+|404|（未找到）服务器找不到请求的接口。|
+|500|（服务器内部错误）服务器遇到错误，无法完成请求。|
+|504|（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。|
+[link](https://docs-im.easemob.com/start/450errorcode/10restapierrorcode)
+* git提交规范
+>feat - 新功能 feature
+fix - 修复 bug
+docs - 文档注释
+style - 代码格式(不影响代码运行的变动)
+refactor - 重构、优化(既不增加新功能，也不是修复bug)
+perf - 性能优化
+test - 增加测试
+chore - 构建过程或辅助工具的变动
+revert - 回退
+build - 打包
+[link](https://juejin.cn/post/6844903793033756680#heading-6)
 
-#### 0225
-* Mockito 框架
-* implements Serializable
-一个对象序列化的接口，一个类只有实现了Serializable接口，它的对象才是可序列化的。因此如果要序列化某些类的对象，这些类就必须实现Serializable接口。而实际上，Serializable是一个空接口，没有什么具体内容，它的目的只是简单的标识一个类的对象可以被序列化.
-在进行Java的Socket编程的时候，你有时候可能要传输某一类的对象，那么也就要实现Serializable接口。最常见的你传输一个字符串，它是JDK里面的类，也实现了Serializable接口，这样做为的是将数据变为二进制来传输，所以可以在网络上传输。
-[link](https://blog.csdn.net/am540/article/details/82498298)
-* redis过期键的删除策略
-redis使用的过期键值删除策略是：惰性删除加上定期删除，两者配合使用
-[link](https://www.jianshu.com/p/9352d20fb2e0)
+#### 0302
+* redis中hash类型操作
+[link](https://segmentfault.com/a/1190000037786578)
+* java JSONObject
+构造JSONObject
+```
+JSONObject();
+JSONObject(String str);
+JSONObject(Object obj);
+JSONObject(Map<String, Object> map);
+```
+无参构造JSONObject
+```
+People people = new People();
+...省略
+JSONObject jsonO = new JSONObject();
+jsonO.put("a", "a");
+jsonO.put("people", people);
+System.out.println(jsonO);
+```
+[link](https://blog.csdn.net/Qimingweikun/article/details/79970180)
+* spring context
+* java.lang.reflect.Field
+[link](https://vimsky.com/examples/usage/field-set-method-in-java-with-examples.html)
+[link](https://www.cnblogs.com/Big-Boss/p/13402721.html)
+
+
 
 # Project highlights
 
