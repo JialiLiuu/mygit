@@ -143,7 +143,37 @@ System.out.println(jsonO);
 [link](https://vimsky.com/examples/usage/field-set-method-in-java-with-examples.html)
 [link](https://www.cnblogs.com/Big-Boss/p/13402721.html)
 
+#### 0303
+* toString和toJSONString的区别
+```
+ Map<String, Integer> map = new HashMap<>();
+map.put( "staff9", 1 );
+map.put( "staff1", 3 );
+System.out.println(map.toString());
+System.out.println(JSONObject.toJSONString(map));
 
+List<Map<String, Integer>> list = new ArrayList<>();
+list.add(map);
+System.out.println(list.toString());
+System.out.println(JSONArray.toJSONString(list));
+<!-- 结果
+{staff9=1, staff1=3}
+{"staff9":1,"staff1":3}
+[{staff9=1, staff1=3}]
+[{"staff9":1,"staff1":3}] -->
+```
+[link](https://blog.csdn.net/sinat_36454672/article/details/105969975)
+
+#### 0304
+* redis支持数据类型及用法
+  字符串 done
+  哈希 done
+  列表 done
+  集合 done
+  有序集合
+  HyperLogLog
+[link](https://www.redis.com.cn/redis-intro.html) **还要很多没有看**
+* HTTP和RPC的区别
 
 # Project highlights
 
