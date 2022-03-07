@@ -51,7 +51,9 @@ str=String.format("Hi,%s:%s.%s", "王南","王力","王张");
 [link](https://blog.csdn.net/lonely_fireworks/article/details/7962171)
 
 #### 0224
-* BigDecimal
+* BigDecima
+Java在java.math包中提供的API类BigDecimal，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数，但在实际应用中，可能需要对更大或者更小的数进行运算和处理。一般情况下，对于那些不需要准确计算精度的数字，我们可以直接使用Float和Double处理，但是Double.valueOf(String) 和Float.valueOf(String)会丢失精度。所以开发中，如果我们需要精确计算的结果，则必须使用BigDecimal类来操作。
+[link](https://www.cnblogs.com/zhangyinhua/p/11545305.html)
 * Redis中String类型的Value最大可以容纳数据长度
 项目中使用redis存储，key-value方式，在Redis中字符串类型的Value最多可以容纳的数据长度是512M
 官方信息:
@@ -174,6 +176,56 @@ System.out.println(JSONArray.toJSONString(list));
   HyperLogLog
 [link](https://www.redis.com.cn/redis-intro.html) **还要很多没有看**
 * HTTP和RPC的区别
+
+#### 0307
+* BeanMap.create()
+进行对象与Map的相互转换
+[link](https://blog.csdn.net/q358543781/article/details/50176953)
+* equals() equalsIgnoreCase()
+For e.g. The equals() method would return false if we compare the strings “TEXT” and “text” however equalsIgnoreCase() would return true.
+[link](https://beginnersbook.com/2013/12/java-string-equals-and-equalsignorecase-methods-example/)
+* 拦截器
+Spring的拦截器
+```
+public abstract class HandlerInterceptorAdapter implements HandlerInterceptor{
+    // 在业务处理器处理请求之前被调用
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
+        return true;
+    }
+    // 在业务处理器处理请求完成之后，生成视图之前执行
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)
+      throws Exception{
+    }
+    // 在DispatcherServlet完全处理完请求之后被调用，可用于清理资源
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+      throws Exception{
+    }
+}
+```
+[link](https://segmentfault.com/a/1190000024464165)
+Struts2的拦截器
+[link](https://www.jianshu.com/p/30b62f11d6cb)
+* 跨域
+|参数|值|描述|
+|:-|:-|:-|
+|Access-Control-Allow-Origin|	*	|授权的源控制|
+|Access-Control-Allow-Credentials|	true / false	|是否允许用户发送和处理cookie|
+|Access-Control-Allow-Methods|	[,]*	|允许请求的HTTP Method，多个用逗号分隔|
+|Access-Control-Allow-Headers|	[,]*	|控制哪些header能发送真正的请求，多个用逗号分隔|
+|Access-Control-Max-Age|	秒	|授权的时间，单位为秒。有效期内，不会重复发送预检请求|
+
+当发生跨域请求时，浏览器会发起两次请求，第一次为预检请求，其请求方法为OPTIONS，第二次为真实请求。只有当第一次请求成功后才会发起第二次请求。
+所以在拦截器或者过滤器对token进行验证的时候处理，OPTIONS的请求是不会带有认证信息，所以需要跳过OPTIONS请求。
+```
+String method = request.getMethod();
+if(method.equals("OPTIONS")){
+  // 放行
+} else {
+  // 验证token
+}
+```
+![](image/README/1646649512725.png)
+[link](https://segmentfault.com/a/1190000017823645)
 
 # Project highlights
 
