@@ -6,3 +6,7 @@
 [在md文件添加图片](https://www.cnblogs.com/hongmaju/p/6873720.html)
 [解决办法](https://blog.csdn.net/qq_38232598/article/details/91346392)
 * hosts文件无法修改解决办法：将hosts文件复制一份，修改之后，复制到原文件夹替换！
+
+# 阅读
+#### 2.8
+Java核心90页
