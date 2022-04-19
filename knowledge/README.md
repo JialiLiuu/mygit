@@ -610,7 +610,6 @@ spring支持编程式事务管理和声明式事务管理两种方式。
 * mysql-同时update和select同一张表
 mysql在from子句中遇到子查询时，先执行子查询并将结果放到一个临时表中，我们通常称它为“派生表”；临时表是没有索引、无法加锁的。
 [link](https://blog.csdn.net/u013344884/article/details/79571101)
-<<<<<<< HEAD
 [link](https://blog.csdn.net/afeiqiang/article/details/8589535?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=2)
 
 #### 0419
@@ -634,6 +633,3 @@ mysql在from子句中遇到子查询时，先执行子查询并将结果放到�
 new Integer(1) ：会新建一个对象；
 Integer.valueOf(1) ：使用对象池中的对象，如果多次调用，会取得同一个对象的引用。
 [link](https://zhuanlan.zhihu.com/p/94428655)
-=======
-[link](https://blog.csdn.net/afeiqiang/article/details/8589535?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=2)
->>>>>>> 3408451d47a7c034dcc9fa0fcd005a1e2ec54e62
