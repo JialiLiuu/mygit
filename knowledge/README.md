@@ -610,26 +610,3 @@ spring支持编程式事务管理和声明式事务管理两种方式。
 * mysql-同时update和select同一张表
 mysql在from子句中遇到子查询时，先执行子查询并将结果放到一个临时表中，我们通常称它为“派生表”；临时表是没有索引、无法加锁的。
 [link](https://blog.csdn.net/u013344884/article/details/79571101)
-[link](https://blog.csdn.net/afeiqiang/article/details/8589535?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=2)
-
-#### 0419
-* postman-添加cookie
-1.打开postman，开启 Interceptor
-2.用浏览器打开需要获取cookie的网页(在网页请求一个页面)，然后打开postman的History标签，可以看到Interceptor截取到的请求
-3.将得到的cookie添加到要测试接口的请求头中
-![](image/README/1650336735537.png)
-[link](https://www.cnblogs.com/hanmk/p/10786271.html)
-
-* postman-传参body是数组
-选择 Body 的为 raw 格式，以 JSON 形式传递即可。如果这数组还要包装多层 key-value 的话，只要按标准 JSON 格式包装即可。
-![](image/README/1650336830692.png)
-[link](https://www.jianshu.com/p/19f4ed1bc164)
-
-* java对象字段为空，对象不为空
-因为此时对象已经被实例化，所以在项目中通常会用反射获取Field从而判断该属性值是否为null，也就是常说的判断对象中所有属性不为null
-[link](https://blog.csdn.net/qq_35566813/article/details/90914062)
-
-* new Integer(1)与Integer.valueOf(1) 的区别
-new Integer(1) ：会新建一个对象；
-Integer.valueOf(1) ：使用对象池中的对象，如果多次调用，会取得同一个对象的引用。
-[link](https://zhuanlan.zhihu.com/p/94428655)
