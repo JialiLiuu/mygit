@@ -360,3 +360,276 @@ public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command,
 				TimeUnit unit);
 ```
 [link](https://blog.csdn.net/tsyj810883979/article/details/8481621)
+
+#### 0418
+* java反射-获得泛型参数
+```
+public class Person<T> {
+
+}
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
+public class Student extends Person<Student> {
+    public static void main(String[] args) {
+        Student st = new Student();
+        Class clazz = st.getClass();
+        // getSuperclass()获得该类的父类
+        System.out.println(clazz.getSuperclass());
+        // getGenericSuperclass()获得带有泛型的父类
+        // Type是 Java 编程语言中所有类型的公共高级接口。它们包括原始类型、参数化类型、数组类型、类型变量和基本类型。
+        Type type = clazz.getGenericSuperclass();
+        System.out.println(type);
+        // ParameterizedType参数化类型，即泛型
+        ParameterizedType p = (ParameterizedType) type;
+        // getActualTypeArguments获取参数化类型的数组，泛型可能有多个
+        Class c = (Class) p.getActualTypeArguments()[0];
+        System.out.println(c);
+    }
+}
+
+// 打印结果：
+
+// class com.test.Person
+// com.test.Person<com.test.Student>
+// class com.test.Student
+```
+[link](https://blog.csdn.net/liang5630/article/details/40185591)
+
+* java注解&反射
+1. 注解部分
+针对类
+```
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Table {
+
+    String name();
+}
+```
+针对属性
+```
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Column {
+
+    boolean id() default false;
+    String name() default "";
+}
+```
+2. 将注解应用于实体类
+```
+@Table(name = "developer")
+public class Developer {
+
+    @Column(id = true, name = "_id")
+    private String id;
+    @Column(name = "_name")
+    private String name;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+3. 测试（通过反射读取数据）
+```
+public class Test {
+
+    public static void main(String[] args) throws IllegalAccessException {
+
+        Developer developer = new Developer();
+        developer.setId("id_1001");
+        developer.setName("Jack");
+
+        Class<?> clz = Developer.class;
+
+        //检查是否有注解
+        if (clz.isAnnotationPresent(Table.class)) {
+            Table table = clz.getAnnotation(Table.class);
+            System.err.println("clz_name: " + clz.getSimpleName() + "; table_name: " + table.name());
+
+            Field[] fields = clz.getDeclaredFields();
+            for (Field field : fields) {
+                if (field.isAnnotationPresent(Column.class)) {
+                    Column column = field.getAnnotation(Column.class);
+                    field.setAccessible(true);
+                    System.err.println(clz.getSimpleName() + "." + field.getName() + "---"
+                            + table.name() + "." + column.name() + ":" + field.get(developer).toString());
+
+                    //测试id
+                    if(column.id()) {
+                        System.err.println("when id, out put this");
+                    }
+                } else {
+                    System.err.println(clz.getSimpleName() + "." + field.getName() + " not ...");
+                }
+            }
+        } else {
+            System.out.println("clz " + clz.getSimpleName() + " has no annotation.");
+        }
+
+    }
+}
+
+//输出打印
+clz_name: Developer; table_name: developer
+Developer.id---developer._id:id_1001
+when id, out put this
+Developer.name---developer._name:Jack
+```
+
+[link](https://www.programminghunter.com/article/31022140954/)
+
+* java反射-获取类的字段
+getFields(): 获取某个类的所有的public字段，其中是包括父类的public字段的。
+getDeclaredFields()：获取某个类的自身的所有字段，不包括父类的字段。
+[link](https://blog.csdn.net/liujun03/article/details/81512834)
+
+* Method.invoke
+public Object invoke(Object obj, Object… args)
+第一个参数为类的实例，第二个参数为相应函数中的参数
+参数：
+obj：从中调用底层方法的对象，必须是实例化对象
+args： 用于方法的调用，是一个object的数组，参数有可能是多个
+```
+Class c = Class.forName("com.cmcc.test.Student");
+Object obj = c.newInstance();
+Method method = c.getMethod("setNum", Integer.class);
+method.invoke(obj, 1);
+```
+[link](https://blog.csdn.net/ChineseProgrammers/article/details/72675287)
+
+* java类的字段设置默认值
+工厂模式
+```
+public class StudentBuilder
+{
+    private String _name;
+    private int _age = 14;      // this has a default
+    private String _motto = ""; // most students don't have one
+
+    public StudentBuilder() { }
+
+    public Student buildStudent()
+    {
+        return new Student(_name, _age, _motto);
+    }
+
+    public StudentBuilder name(String _name)
+    {
+        this._name = _name;
+        return this;
+    }
+
+    public StudentBuilder age(int _age)
+    {
+        this._age = _age;
+        return this;
+    }
+
+    public StudentBuilder motto(String _motto)
+    {
+        this._motto = _motto;
+        return this;
+    }
+}
+```
+使用如下：
+```
+Student s1 = new StudentBuilder().name("Eli").buildStudent();
+Student s2 = new StudentBuilder()
+                 .name("Spicoli")
+                 .age(16)
+                 .motto("Aloha, Mr Hand")
+                 .buildStudent();
+```
+[link](https://segmentfault.com/a/1190000018605171)
+
+* java过滤-Predicate
+根据对象的某个属性过滤list
+```
+        Predicate<Person> strFilter = (aa) -> (aa.getId() > 1);
+        List<Person> dd  = new ArrayList<>();
+        list.stream()
+            .filter(strFilter)
+            .forEach((strlist) -> dd.add(strlist));
+            //dd的对象的id字段都大于1
+```
+[link](https://blog.csdn.net/qq_35462323/article/details/90241798)
+多条件过滤，复杂过滤
+[link](https://blog.csdn.net/w605283073/article/details/89410918)
+
+* spring事务-TransactionDefinition接口
+1. 其核心PlatformTransactionManager.getTransaction()方法将TransactionDefinition接口作为参数，并返回TransactionStatus接口
+2. TransactionStatus接口用于控制事务执行，即设置事务结果、检查事务是否完成或是否为新事务
+
+**事务隔离级别**
+|隔离级别|描述|
+|:-|:-|
+|ISOLATION_DEFAULT	|底层存储的默认隔离级别|
+|ISOLATION_READ_UNCOMMITTED	|RU：最低级隔离级别。它几乎不是事务，允许查看一个事务未提交事务修改的数据；|
+|ISOLATION_READ_COMMITTED	|RC：大多数数据库的默认级别。不可以读取未提交事务的数据，一但提交其他事务就可以操作改数据；|
+|ISOLATION_REPEATABLE_READ	|RR：比RC级别更严格，确保一个事务的重复读取数据都是一致的，不能避免‘幻读’|
+|ISOLATION_SERIALIZABLE|	S：最严格的级别，所有事务排队执行；(数据操作最安全，性能最差的一个)|
+
+**事务传播类型**
+|传播类型|描述|
+|:-|:-|
+|PROPAGATION_REQUIRED	|支持一个已经存在的事务。如果没有事务，则开始一个新的事务；|
+|PROPAGATION_SUPPORTS	|支持一个已经存在的事务。如果没有事务，则以非事务方式运行；|
+|PROPAGATION_MANDATORY|	支持一个已经存在的事务。如果没有活动事务，则抛异常；|
+|PROPAGATION_REQUIRES_NEW	|始终开始新事务。如果活动事物已经存在，将其暂停；|
+|PROPAGATION_NOT_SUPPORTED|	不支持活动事务的执行。始终以非事务方式执行，并暂停任何现有事务；|
+|PROPAGATION_NEVER|	即使存在活动事务，也始终以非事务方式执行。如果存在活动事物，抛出异常；|
+|PROPAGATION_NESTED	|如果存在活动事务，则在嵌套事务中运行。如果没有活动事务，则与PROPAGATION_REQUIRED相同；|
+
+![](image/README/1650252709394.png)
+[link](https://blog.csdn.net/u014259503/article/details/94383010)
+
+* spring事务-@Transactional(rollbackFor = Exception.class)
+spring支持编程式事务管理和声明式事务管理两种方式。
+编程式事务管理使用TransactionTemplate或者直接使用底层的PlatformTransactionManager。对于编程式事务管理，spring推荐使用TransactionTemplate。
+声明式事务管理建立在AOP之上的。其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务。
+声明式事务管理也有两种常用的方式，一种是基于tx和aop名字空间的xml配置文件，另一种就是基于@Transactional注解。显然基于注解的方式更简单易用，更清爽。
+[link](https://www.cnblogs.com/clwydjgs/p/9317849.html)
+
+* mysql-同时update和select同一张表
+mysql在from子句中遇到子查询时，先执行子查询并将结果放到一个临时表中，我们通常称它为“派生表”；临时表是没有索引、无法加锁的。
+[link](https://blog.csdn.net/u013344884/article/details/79571101)
+[link](https://blog.csdn.net/afeiqiang/article/details/8589535?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=2)
+
+#### 0419
+* postman-添加cookie
+1.打开postman，开启 Interceptor
+2.用浏览器打开需要获取cookie的网页(在网页请求一个页面)，然后打开postman的History标签，可以看到Interceptor截取到的请求
+3.将得到的cookie添加到要测试接口的请求头中
+![](image/README/1650336735537.png)
+[link](https://www.cnblogs.com/hanmk/p/10786271.html)
+
+* postman-传参body是数组
+选择 Body 的为 raw 格式，以 JSON 形式传递即可。如果这数组还要包装多层 key-value 的话，只要按标准 JSON 格式包装即可。
+![](image/README/1650336830692.png)
+[link](https://www.jianshu.com/p/19f4ed1bc164)
+
+* java对象字段为空，对象不为空
+因为此时对象已经被实例化，所以在项目中通常会用反射获取Field从而判断该属性值是否为null，也就是常说的判断对象中所有属性不为null
+[link](https://blog.csdn.net/qq_35566813/article/details/90914062)
+
+* new Integer(1)与Integer.valueOf(1) 的区别
+new Integer(1) ：会新建一个对象；
+Integer.valueOf(1) ：使用对象池中的对象，如果多次调用，会取得同一个对象的引用。
+[link](https://zhuanlan.zhihu.com/p/94428655)
