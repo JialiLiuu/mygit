@@ -633,3 +633,23 @@ mysql在from子句中遇到子查询时，先执行子查询并将结果放到�
 new Integer(1) ：会新建一个对象；
 Integer.valueOf(1) ：使用对象池中的对象，如果多次调用，会取得同一个对象的引用。
 [link](https://zhuanlan.zhihu.com/p/94428655)
+
+* java比较字符串
+==比较的是两个字符串的地址是否为相等（同一个地址），equals()方法比较的是两个字符串对象的内容是否相同（当然，若两个字符串引用同一个地址，使用equals()比较也返回true）
+[link](https://cloud.tencent.com/developer/article/1701294)
+
+#### 0421
+* java-获得对象列表的最大/小值、平均值
+[link](https://blog.csdn.net/qq_42570364/article/details/103643509)
+
+* java-判断字符串是否为数字
+NumberUtils.isDigits
+```
+    System.out.println(NumberUtils.isDigits("-5.96"));              // 结果是false
+    System.out.println(NumberUtils.isDigits("0000000000.596"));     // 结果为false
+    System.out.println(NumberUtils.isDigits("0000000000596"));      // 结果为true
+    System.out.println(StringUtils.isNumeric("-5.96"));             // 结果为false    
+    System.out.println(StringUtils.isNumeric("0000000000.596"));    // 结果为false
+    System.out.println(StringUtils.isNumeric("0000000000596"));     // 结果为true
+```
+[link](http://php-note.com/1626.html)
