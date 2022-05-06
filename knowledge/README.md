@@ -653,3 +653,9 @@ NumberUtils.isDigits
     System.out.println(StringUtils.isNumeric("0000000000596"));     // 结果为true
 ```
 [link](http://php-note.com/1626.html)
+
+#### 0429
+* mock使用
+引入类
+![](image/README/1651222820121.png)
+[link](https://blog.csdn.net/wwh578867817/article/details/51934404)
